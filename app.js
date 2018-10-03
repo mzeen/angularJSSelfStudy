@@ -15,12 +15,19 @@ myApp.config(function ($routeProvider) {
         });
 });
 
-myApp.controller("HeaderCtrl", function ($scope) {
+myApp.controller("HeaderCtrl", function ($scope, $location) {
     $scope.appDetails = {
         title: "BookKart",
         tagline: "We have 1 million books for you"
 
     };
+    $scope.nav={};
+    $scope.nav.isActive = function (path) {
+        if (path === $location.path()) {
+            return true;
+        }
+        return false;
+    }
 
 });
 
